@@ -1,0 +1,32 @@
+[
+  {
+    "id": "BJrp-DudG",
+    "email": "alice@facegle.io",
+    "password": "alice123",
+    "role": "admin"
+  },
+  {
+    "id": "BJrp-DudG",
+    "email": "alice@facegle.io",
+    "password": "alice123",
+    "role": "client"
+  },
+  {
+    "id": "sBJrp-DuasddG",
+    "email": "thomas@facegle.io",
+    "password": "alice123",
+    "role": "client"
+  },
+  {
+    "id": "BsdfJrp-DudsdfG",
+    "email": "bill@facegle.io",
+    "password": "alice123",
+    "role": "user"
+  },
+  {
+    "id": "BsdfJrp-DudsdfG",
+    "email": "bill@facegle.io",
+    "password": "alice123",
+    "role": "user"
+  }
+]

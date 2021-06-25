@@ -1,0 +1,34 @@
+type Query {
+  getUser: User
+  getUsers: [User]
+}
+type Mutation {
+  # mutation alias
+  createUser(input: CreateUserInput): User
+}
+type User {
+  id: ID!
+  username: String
+  firstname: String
+  lastname: String
+  phone: Int
+  email: String
+  address: String
+  role: UserRoles
+}
+
+input CreateUserInput {
+  username: String
+  firstname: String
+  lastname: String
+  phone: Int
+  email: String
+  address: String
+  role: UserRoles
+}
+
+enum UserRoles {
+  admin
+  client
+  user
+}

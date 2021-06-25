@@ -1,0 +1,20 @@
+# .github/workflows/main.yml
+# This workflow will build and run any tests before the feature is merged into the main branch
+name: BuildTest
+on:
+  pull_request:
+    branches: [ beta ]
+  workflow_dispatch:
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    env:
+    steps:
+      - uses: actions/checkout@v1
+      - uses: actions/setup-node@v1
+        with:
+          node-version: '12.x'
+      - name: Install NPM dependencies
+        run: npm install
+      - name: Build the app
+        run: npm run build
