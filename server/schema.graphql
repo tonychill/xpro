@@ -1,6 +1,6 @@
 type Query {
-  getUser: User
-  getUsers: [User]
+  user: User
+  users: [User]
 }
 type Mutation {
   # mutation alias

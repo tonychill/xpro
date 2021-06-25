@@ -25,9 +25,9 @@ const UserList: FC<UserListProps> = ({ users }) => {
     <div style={{ display: "rando" }} className=" flex-wrap items-center justify-around max-w-4xl mt-6 sm:w-full">
       <div>The A Team</div>
       <ul className=" flex-wrap items-center justify-around max-w-4xl mt-6 sm:w-full">
-        {users.map((user, idx) => (
-          <li key={idx}>
-            <a href="https://google.com" className="p-6 mt-6 text-left border w-96 rounded-xl hover:text-blue-600 focus:text-blue-600">
+        {users?.map((user, idx) => (
+          <li className="p-6 mt-6 text-left border w-96 rounded-xl hover:text-blue-600 focus:text-blue-600" key={idx}>
+            <a href="https://google.com">
               <h3 className="text-2xl font-bold">{user.firstname}</h3>
               <p className="mt-4 text-xl">More user info will go here.</p>
             </a>
