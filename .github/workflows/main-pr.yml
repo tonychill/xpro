@@ -3,7 +3,7 @@
 name: BuildTest
 on:
   pull_request:
-    branches: [ beta ]
+    branches: [ main ]
   workflow_dispatch:
 jobs:
   build:
