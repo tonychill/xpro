@@ -72,7 +72,6 @@ const Form: FC<FormProps> = ({ string }) => {
     if (name === "email") setEmail(value);
     if (name === "password") setPassword(value);
   }
-  
 
   async function handleSignUp() {
     const signinResponse = await signup(state);

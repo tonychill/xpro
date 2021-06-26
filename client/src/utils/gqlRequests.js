@@ -6,7 +6,6 @@ import { onError } from "@apollo/client/link/error";
 const uri = "http://localhost:9000/graphql";
 
 const authLink = new ApolloLink((operation, forward) => {
-  console.log(operation);
   if (true) {
     operation.setContext(({ headers }) => ({
       headers: {

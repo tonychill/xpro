@@ -38,6 +38,7 @@ export default function SignIn() {
       //TODO: Set application auth state with context.
       // setState({signgedIn: true});
       //TODO: Push user to the 'users' page.
+      console.log(localStorage.getItem(accessTokenKey));
       router.push("/users");
       return;
     }

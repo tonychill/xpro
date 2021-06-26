@@ -22,7 +22,7 @@ enum UserRole {
 }
 const UserList: FC<UserListProps> = ({ users }) => {
   return (
-    <ul className=" flex flex-wrap items-center justify-around max-w-4xl mt-6 sm:w-full">
+    <ul className=" flex flex-wrap items-center justify-start max-w-4xl mt-6 sm:w-full">
       {users?.map(({ firstname, lastname, phone, email, address }, idx) => (
         <li className=" mt-6 text-left  w-1/3 " key={idx}>
           <div className="p-6 mx-2 border rounded-xl hover:text-blue-600 focus:text-blue-600">

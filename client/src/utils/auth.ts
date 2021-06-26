@@ -15,10 +15,6 @@ export function getAccessToken() {
   return localStorage.getItem(accessTokenKey);
 }
 
-export function getRole() {
-  return localStorage.getItem("userRole");
-}
-//FIXME: Working here
 export async function signup(data: SignUpData) {
   const response = await fetch("http://localhost:9000/signup", {
     method: "POST",
@@ -27,13 +23,11 @@ export async function signup(data: SignUpData) {
   });
   if (response.ok) {
     const { token } = await response.json();
-    console.log(token);
     localStorage.setItem(accessTokenKey, token);
   }
   return response.ok;
 }
 export async function signin(email, password) {
-  console.log(email, password, "stuss fhould. ");
   const response = await fetch("http://localhost:9000/signin", {
     method: "POST",
     headers: { "content-type": "application/json" },
@@ -41,7 +35,6 @@ export async function signin(email, password) {
   });
   if (response.ok) {
     const { token } = await response.json();
-    console.log(token);
     localStorage.setItem(accessTokenKey, token);
   }
   return response.ok;

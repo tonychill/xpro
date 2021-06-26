@@ -8,8 +8,10 @@ const Query = {
 
   users: (_, b, ctx) => {
     const role = ctx.user.role;
+
     const users = db.users.list();
-    if (role == undefined) return "To see who is the best you will need to create an account.";
+    console.log(users);
+    if (role == undefined) return [];
     if (role === "admin") return users;
 
     if (role === "client") return users.filter((user) => user.role !== "admin");

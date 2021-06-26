@@ -1,5 +1,5 @@
 import Head from "next/head";
-import { useEffect, useState } from "react";
+import { useEffect, useState, FC } from "react";
 import { getUsers, getUsersTEST } from "../utils/gqlRequests";
 // import {  } from "next";
 // import Link from "../components/Link";
@@ -14,10 +14,8 @@ export default function Users({}) {
     async function init() {
       //Load users from the server after the component has loaded.
       const users = await getUsers();
-      console.log(users);
       if (users) setUsers(users);
     }
-    console.log(users);
   }, []);
   // console.log(users);
   // const users = [{ firstname: "tony" }, { firstname: "angela" }];
