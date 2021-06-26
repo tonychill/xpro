@@ -1,32 +1,16 @@
 import gql from "graphql-tag";
-import { getAccessToken, getRole, isLoggedIn } from "./auth";
+import { getAccessToken, isLoggedIn } from "./auth";
 import { ApolloClient, HttpLink, InMemoryCache, ApolloLink } from "@apollo/client";
 import { onError } from "@apollo/client/link/error";
 
 const uri = "http://localhost:9000/graphql";
-
-// const authLink = new ApolloLink((operation, forward) => {
-//   console.log(operation, forward);
-//   if (false) {
-//     operation.setContext({
-// headers: {
-//   authorization: "Bearer " + getAccessToken(),
-//   role: getRole(), //FIXME: We shouldn't do this client side for security reasons.
-// },
-//     });
-//   }
-
-//   // return forward(operation);
-// });
 
 const authLink = new ApolloLink((operation, forward) => {
   console.log(operation);
   if (true) {
     operation.setContext(({ headers }) => ({
       headers: {
-        authorization:
-          "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJyeTlwYndkT3oiLCJpYXQiOjE2MDA2MzI3NjB9.w7hIzJE4IogDpURfPZZu3YH67kdMFegBg6d8QsRfO3o", //+ getAccessToken(),
-        role: "admin", //getRole(), //FIXME: We shouldn't do this client side for security reasons.
+        authorization: "Bearer " + getAccessToken(),
       },
     }));
   }
@@ -91,12 +75,13 @@ export async function getUsers() {
     {
       users {
         id
+        email
         firstname
         lastname
-        phone
         role
-        email
-        phone
+        city
+        state
+        zip
       }
     }
   `;

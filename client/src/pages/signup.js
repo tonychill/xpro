@@ -2,6 +2,7 @@ import Head from "next/head";
 import { useState, useEffect } from "react";
 import { useRouter } from "next/router";
 import { signin } from "../utils/auth";
+import Form from "../components/Form";
 
 export default function SignIn() {
   const [email, setEmail] = useState("");
@@ -22,29 +23,8 @@ export default function SignIn() {
       </Head>
 
       <main className="flex flex-col items-center justify-center w-full flex-1 px-20 text-center">
-        <div>Create a user account</div>
-        <form>
-          <div className="field">
-            <label className="label">Email</label>
-            <div className="control">
-              <input className="input" type="text" name="email" onChange={(event) => handleChange(event)} />
-            </div>
-          </div>
-          <div className="field">
-            <label className="label">Password</label>
-            <div className="control">
-              <input className="input" type="password" name="password" onChange={(event) => handleChange(event)} />
-            </div>
-          </div>
-          <div className="field">
-            {/* <p className="help is-danger">{error && "Invalid credentials"}</p> */}
-            <div className="control">
-              <button className="button is-link" onClick={handleSignIn}>
-                Sign in
-              </button>
-            </div>
-          </div>
-        </form>
+        <div className="mt-24">Create a user account</div>
+        <Form />
       </main>
     </div>
   );
@@ -66,8 +46,6 @@ export default function SignIn() {
     //   //TODO: Set error state in the event that there is a problem with the signin process.
     // }
   }
-
-
 
   function handleChange(event) {
     console.log("signing...");

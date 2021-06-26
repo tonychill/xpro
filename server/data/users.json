@@ -58,5 +58,16 @@
     "phone": "3040509884",
     "email": "bari@ilanlyfe.io",
     "role": "user"
+  },
+  {
+    "id": "rJIJzgBhu",
+    "email": "tony@ilanlyfe.com",
+    "password": "tony",
+    "firstname": "Thomas ",
+    "lastname": "Bradey",
+    "role": "client",
+    "city": "Palm Harbor",
+    "state": "",
+    "zip": "34685"
   }
 ]
