@@ -27,7 +27,17 @@ const context = ({ req }) => ({ user: req.user && db.users.get(req.user.sub) });
 const apolloServer = new ApolloServer({ typeDefs, resolvers, context });
 apolloServer.applyMiddleware({ app, path: "/graphql" });
 
-app.post("/login", (req, res) => {
+app.post("/signup", (req, res) => {
+  const { email, password, role } = req.body;
+  const user = db.users.list().find((user) => user.email === email);
+  if (!(user && user.password === password)) {
+    res.sendStatus(401);
+    return;
+  }
+  const token = jwt.sign({ sub: user.id }, jwtSecret);
+  res.send({ token });
+});
+app.post("/signin", (req, res) => {
   const { email, password } = req.body;
   const user = db.users.list().find((user) => user.email === email);
   if (!(user && user.password === password)) {

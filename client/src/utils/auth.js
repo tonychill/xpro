@@ -11,8 +11,9 @@ export function getRole() {
   return localStorage.getItem("userRole");
 }
 
-export async function login(email, password) {
-  const response = await fetch("http://localhost:9000/login", {
+export async function signin(email, password) {
+  console.log(email, password, "stuss fhould. ");
+  const response = await fetch("http://localhost:9000/signin", {
     method: "POST",
     headers: { "content-type": "application/json" },
     body: JSON.stringify({ email, password }),
@@ -31,3 +32,6 @@ export function isLoggedIn() {
 export function logout() {
   localStorage.removeItem(accessTokenKey);
 }
+
+export async function handleLogin() {}
+export async function handleSignUp() {}

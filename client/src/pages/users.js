@@ -15,7 +15,7 @@ export default function Users({}) {
       //Load users from the server after the component has loaded.
       const users = await getUsers();
       console.log(users);
-      // if (users) setUsers(users);
+      if (users) setUsers(users);
     }
     console.log(users);
   }, []);

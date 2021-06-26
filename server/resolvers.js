@@ -9,11 +9,11 @@ const Query = {
   users: (_, b, ctx) => {
     const role = ctx.user.role;
     const users = db.users.list();
-
+    if (role == undefined) return "To see who is the best you will need to create an account.";
     if (role === "admin") return users;
-    
-    if (role === "client")return users.filter((user) => user.role !== "admin");
-    
+
+    if (role === "client") return users.filter((user) => user.role !== "admin");
+
     let bottom = [];
     for (let user of users) {
       if (user.role !== "admin" && user.role !== "client") bottom.push(user);
