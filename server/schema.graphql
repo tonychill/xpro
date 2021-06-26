@@ -1,6 +1,6 @@
 type Query {
-  getUser: User
-  getUsers: [User]
+  user: User
+  users: [User]
 }
 type Mutation {
   # mutation alias
@@ -11,7 +11,7 @@ type User {
   username: String
   firstname: String
   lastname: String
-  phone: Int
+  phone: String
   email: String
   address: String
   role: UserRoles

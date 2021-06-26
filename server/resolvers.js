@@ -1,22 +1,30 @@
 const db = require("./db");
 
 const Query = {
-  getUser: (_, { id }) => {
+  user: (_, { id }) => {
     //TODO: check to see is user is actually authenticated.
     db.users.get(id);
   },
 
-  getUsers: (_, b) => {
-    let role = "client";
+  users: (_, b, ctx) => {
+    const role = ctx.user.role;
     const users = db.users.list();
+    if (role == undefined) return "To see who is the best you will need to create an account.";
     if (role === "admin") return users;
-    return users.filter((user) => user.role === role);
+
+    if (role === "client") return users.filter((user) => user.role !== "admin");
+
+    let bottom = [];
+    for (let user of users) {
+      if (user.role !== "admin" && user.role !== "client") bottom.push(user);
+    }
+    return bottom;
   },
 };
 
 const Mutation = {
   createUser: (_, { input }, { user }) => {
-    console.log(user);
+    console.log(user, "this i sthe user");
     if (!user) throw Error("Sorry, you are unauthorized to perform this acction. ");
     const id = db.users.create({ ...input, companyId: user.companyId });
     return db.users.get(id);

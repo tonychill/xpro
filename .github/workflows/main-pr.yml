@@ -1,9 +1,9 @@
 # .github/workflows/main.yml
-# This workflow will build and run any tests before the feature is merged into the main branch
+# This workflow will build and run any tests before the feature is merged into the main branc
 name: BuildTest
 on:
   pull_request:
-    branches: [ beta ]
+    branches: [ main ]
   workflow_dispatch:
 jobs:
   build:

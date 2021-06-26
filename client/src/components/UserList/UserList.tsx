@@ -22,19 +22,20 @@ enum UserRole {
 }
 const UserList: FC<UserListProps> = ({ users }) => {
   return (
-    <div style={{ display: "rando" }} className=" flex-wrap items-center justify-around max-w-4xl mt-6 sm:w-full">
-      <div>The A Team</div>
-      <ul className=" flex-wrap items-center justify-around max-w-4xl mt-6 sm:w-full">
-        {users.map((user, idx) => (
-          <li key={idx}>
-            <a href="https://google.com" className="p-6 mt-6 text-left border w-96 rounded-xl hover:text-blue-600 focus:text-blue-600">
-              <h3 className="text-2xl font-bold">{user.firstname}</h3>
-              <p className="mt-4 text-xl">More user info will go here.</p>
+    <ul className=" flex flex-wrap items-center justify-around max-w-4xl mt-6 sm:w-full">
+      {users?.map(({ firstname, lastname, phone, email, address }, idx) => (
+        <li className=" mt-6 text-left  w-1/3 " key={idx}>
+          <div className="p-6 mx-2 border rounded-xl hover:text-blue-600 focus:text-blue-600">
+            <a href="https://google.com">
+              <h3 className="text-1xl font-bold">{`${firstname} ${lastname}`}</h3>
+              <p className="mt-1 text-md">{email}</p>
+              <p className="mt-1 text-md">{phone}</p>
+              <p className="mt-1 text-md">{address}</p>
             </a>
-          </li>
-        ))}
-      </ul>
-    </div>
+          </div>
+        </li>
+      ))}
+    </ul>
   );
 };
 

@@ -22,7 +22,7 @@ app.get("/", (req, res) => {
   console.log(req);
   res.sendStatus(200);
 });
-app.post("/login", (req, res) => {
+app.post("/signin", (req, res) => {
   const { email, password } = req.body;
   const user = db.users.list().find((user) => user.email === email);
   if (!(user && user.password === password)) {
