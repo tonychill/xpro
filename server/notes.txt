@@ -1,0 +1,74 @@
+create repository
+
+- aws ecr  create-repository --repository-name apolloserver
+        {
+    "repository": {
+        "repositoryArn": "arn:aws:ecr:us-east-1:499370782795:repository/apolloserver",
+        "registryId": "499370782795",
+        "repositoryName": "apolloserver",
+        "repositoryUri": "499370782795.dkr.ecr.us-east-1.amazonaws.com/apolloserver",
+        "createdAt": "2021-06-26T15:37:46-04:00",
+        "imageTagMutability": "MUTABLE",
+        "imageScanningConfiguration": {
+            "scanOnPush": false
+        }
+    }
+}
+
+Login to Ecr...
+
+aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin 499370782795.dkr.ecr.us-east-1.amazonaws.com/apolloserver
+
+
+Tag image for push
+- docker tag apolloserver 499370782795.dkr.ecr.us-east-1.amazonaws.com/apolloserver:init 
+
+push
+
+- docker push 499370782795.dkr.ecr.us-east-1.amazonaws.com/apolloserver:init
+
+1. Create Stack 
+
+    aws cloudformation deploy \
+    --template-file infra/ecs.yml \
+    --region us-east-1 \
+    --stack-name XPROApolloServerV5 \
+    --capabilities CAPABILITY_NAMED_IAM 
+
+    aws cloudformation deploy \
+    --template-file infra/ecs.yml \
+    --region us-east-1 \
+    --stack-name ContainerizeV1 \
+    --capabilities CAPABILITY_NAMED_IAM 
+
+
+2. Create task definition: 
+- aws ecs register-task-definition --family xproproject01 \
+--container-definitions 499370782795.dkr.ecr.us-east-1.amazonaws.com/apolloserver:init 
+[--task-role-arn <value>]
+[--execution-role-arn <value>]
+[--network-mode <value>]
+
+[--volumes <value>]
+[--placement-constraints <value>]
+[--requires-compatibilities <value>]
+[--cpu <value>]
+[--memory <value>]
+[--tags <value>]
+[--pid-mode <value>]
+[--ipc-mode <value>]
+[--proxy-configuration <value>]
+[--inference-accelerators <value>]
+[--ephemeral-storage <value>]
+[--cli-input-json <value>]
+[--generate-cli-skeleton <value>]
+
+
+
+vpi ID
+
+	
+vpc-049c9b0d76956a584
+
+XPROA-ECSAL-R8WLU2RO33PI-140811851.us-east-1.elb.amazonaws.com
+vpc-0b49663c39443b34d 
