@@ -19,6 +19,6 @@ jobs:
       - name: verify dir
         run: ls
       - name: Install NPM dependencies
-        run: npm install
+        run: cd client && npm install
       - name: Build the app
         run: npm run build
