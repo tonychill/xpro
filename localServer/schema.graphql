@@ -8,12 +8,12 @@ type Mutation {
 }
 type User {
   id: ID!
-  username: String
   firstname: String
   lastname: String
-  phone: String
   email: String
-  address: String
+  city: String
+  state: String
+  zip: String
   role: UserRoles
 }
 
