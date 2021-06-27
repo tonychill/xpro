@@ -3,7 +3,7 @@ import { getAccessToken, isLoggedIn } from "./auth";
 import { ApolloClient, HttpLink, InMemoryCache, ApolloLink } from "@apollo/client";
 import { onError } from "@apollo/client/link/error";
 
-const uri = "http://localhost:9000/graphql";
+const uri = "http://localhost:5000/graphql";
 
 const authLink = new ApolloLink((operation, forward) => {
   if (true) {

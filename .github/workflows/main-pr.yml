@@ -8,12 +8,14 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-    env:
+    # env:
     steps:
       - uses: actions/checkout@v1
       - uses: actions/setup-node@v1
         with:
           node-version: '12.x'
+      - name: Change dir
+        run: cd client
       - name: Install NPM dependencies
         run: npm install
       - name: Build the app
