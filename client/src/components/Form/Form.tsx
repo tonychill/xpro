@@ -52,7 +52,7 @@ const Form: FC<FormProps> = ({ string }) => {
       </div>
       <div className="flex flex-wrap -mx-3 mb-6">
         <button
-          className="shadow bg-purple-500 hover:bg-purple-400 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded"
+          className="shadow bg-green-300 transition-all  hover:bg-green-600 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded"
           type="button"
           onClick={handleSignUp}
         >

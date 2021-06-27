@@ -16,7 +16,7 @@ export default function Users({}) {
       const users = await getUsers();
       console.log(users);
       if (users) setUsers(users);
-    }
+    } 
   }, []);
 
   return (
