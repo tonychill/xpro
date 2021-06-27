@@ -15,7 +15,7 @@ jobs:
         with:
           node-version: '12.x'
       - name: Change dir
-        run: cd ../../client
+        run: ls
       - name: Install NPM dependencies
         run: npm install
       - name: Build the app
