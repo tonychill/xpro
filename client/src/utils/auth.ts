@@ -16,7 +16,7 @@ export function getAccessToken() {
 }
 
 export async function signup(data: SignUpData) {
-  const response = await fetch("http://localhost:9000/signup", {
+  const response = await fetch("http://localhost:5000/signup", {
     method: "POST",
     headers: { "content-type": "application/json" },
     body: JSON.stringify(data),
@@ -28,7 +28,7 @@ export async function signup(data: SignUpData) {
   return response.ok;
 }
 export async function signin(email, password) {
-  const response = await fetch("http://localhost:9000/signin", {
+  const response = await fetch("http://localhost:5000/signin", {
     method: "POST",
     headers: { "content-type": "application/json" },
     body: JSON.stringify({ email, password }),

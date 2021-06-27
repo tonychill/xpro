@@ -6,7 +6,7 @@ import { onError } from "@apollo/client/link/error";
 const uri = "http://localhost:5000/graphql";
 
 const authLink = new ApolloLink((operation, forward) => {
-  if (true) {
+  if (isLoggedIn()) {
     operation.setContext(({ headers }) => ({
       headers: {
         authorization: "Bearer " + getAccessToken(),
@@ -112,45 +112,3 @@ export async function getUsersTEST() {
   const { data } = await response.json();
   return data;
 }
-// export async function loadCompany(id) {
-//   const query = gql`
-//     query CompanyQuery($id: ID!) {
-//       company(id: $id) {
-//         id
-//         name
-//         description
-//         jobs {
-//           id
-//           title
-//         }
-//       }
-//     }
-//   `;
-//   // const { company } = await gqlReq(query, { id });
-//   const {
-//     data: { company },
-//   } = await client.query({ query });
-//   return company;
-// }
-// export async function gqlReqs(query, variables = {}) {
-//     const req = {
-//       method: "POST",
-//       headers: {
-//         "content-type": "application/json",
-//       },
-//       body: JSON.stringify({ query, variables }),
-//     };
-//     console.log(isLoggedIn());
-//     if (isLoggedIn()) {
-//       req.headers["authorization"] = "Bearer " + getAccessToken();
-//     }
-//     console.log(req.headers);
-//     const response = await fetch(uri, req);
-//     const resBody = await response.json();
-//     if (resBody.errors) {
-//       const message = resBody.errors.map((err) => err.message).join("\n");
-//       throw Error(message);
-//     }
-//     // const { data } = await response.json();
-//     return resBody.data;
-//   }

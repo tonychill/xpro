@@ -11,11 +11,10 @@ export default function SignIn() {
   const router = useRouter();
 
   useEffect(() => {
-    console.log(email, password);
   }, [email, password]);
 
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen py-2">
+    <div className="flex flex-col items-center justify-center py-2">
       <Head>
         <title>Welcome to XPRO</title>
         <link rel="icon" href="/favicon.ico" />
@@ -70,7 +69,6 @@ export default function SignIn() {
 
 
   function handleChange(event) {
-    console.log("signing...");
     const { name, value } = event.target;
     if (name === "email") setEmail(value);
     if (name === "password") setPassword(value);

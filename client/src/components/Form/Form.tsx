@@ -63,23 +63,24 @@ const Form: FC<FormProps> = ({ string }) => {
   );
 
   function handleChange(event) {
-    console.log("signing...");
     const { name, value } = event.target;
     let localState = state;
     localState[name] = value;
-    console.log(localState);
     setState(localState);
     if (name === "email") setEmail(value);
     if (name === "password") setPassword(value);
   }
 
   async function handleSignUp() {
-    const signinResponse = await signup(state);
+    const signUpResponse = await signup(state);
 
-    if (signinResponse) {
+    if (signUpResponse) {
       //TODO: Set application auth state with context.
+
       // setState({signgedIn: true});
+
       //TODO: Push user to the 'users' page.
+
       router.push("/users");
       return;
     }
