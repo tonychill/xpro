@@ -14,7 +14,7 @@ export default function SignIn() {
   }, [email, password]);
 
   return (
-    <div className="flex flex-col items-center justify-center py-2">
+    <div className="flex flex-col items-center justify-center mt-24 py-2">
       <Head>
         <title>Welcome to XPRO</title>
         <link rel="icon" href="/favicon.ico" />

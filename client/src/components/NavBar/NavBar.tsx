@@ -9,9 +9,11 @@ const NavBar: FC<NavBarProps> = ({ string }) => {
     <header className="fixed top-0 bg-white shadow-md h-20 w-full">
       <div className="p-3 flex items-center flex-auto">
         <Link href="/">
-          <div className="rounded-full h-12 w-12 bg-blue-500"></div>
+          <img src="/Untitled-1.jpg" className="rounded-full shadow-sm border-none h-12 w-12 bg-green-600"></img>
         </Link>
-        <div>Welcome...</div>
+        <div className="pl-4">
+          <p className=" text-green-600 text-opacity-90 text-2xl">Let's build amazing!</p>
+        </div>
       </div>
     </header>
   );
