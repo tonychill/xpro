@@ -15,6 +15,8 @@ jobs:
         with:
           node-version: '12.x'
       - name: Change dir
+        run: cd client
+      - name: verify dir
         run: ls
       - name: Install NPM dependencies
         run: npm install
