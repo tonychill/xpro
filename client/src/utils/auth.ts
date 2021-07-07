@@ -36,8 +36,8 @@ export async function signin(email, password) {
   if (response.ok) {
     const { token } = await response.json();
     localStorage.setItem(accessTokenKey, token);
+    return response.ok;
   }
-  return response.ok;
 }
 
 export function isLoggedIn() {

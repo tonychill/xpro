@@ -195,5 +195,16 @@
     "city": "tim",
     "state": "",
     "zip": "00874"
+  },
+  {
+    "id": "HyoXRc32u",
+    "email": "paul@ilanlyfe.com",
+    "password": "tony",
+    "firstname": "paul",
+    "lastname": "dubey",
+    "role": "client",
+    "city": "timbuktoo",
+    "state": "",
+    "zip": "00830"
   }
 ]
